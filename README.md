@@ -2,11 +2,11 @@
 
 An end-to-end churn prediction pipeline on Databricks: raw customer data flows through a **Bronze → Silver → Gold** lakehouse built as a **Lakeflow Declarative Pipeline**, a **Random Forest** model is trained and tracked with **MLflow** and registered in **Unity Catalog**, and a scheduled **Databricks Job** refreshes the data and re-scores every customer daily.
 
-**TL;DR:** Raw CSV in, daily churn probabilities out, fully automated. The model reaches *[X]* ROC-AUC on a held-out test set.
+**TL;DR:** Raw CSV in, daily churn probabilities out, fully automated.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```mermaid
 flowchart LR
