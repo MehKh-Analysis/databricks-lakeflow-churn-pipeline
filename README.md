@@ -35,20 +35,6 @@ flowchart LR
 | **Training** | Preprocessing + Random Forest in one sklearn pipeline, logged with MLflow, validated, and registered | `churn_rf_model` (Unity Catalog) |
 | **Scoring** | Loads the registered model and scores every customer | `churn_predictions` (churn label + probability) |
 
----
-
-## 🤖 Model
-
-- **Data:** [IBM Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn) (~7,000 customers)
-- **Features:** contract, tenure, services, billing, and charges; `customerID` excluded
-- **Pipeline:** median imputation + scaling for numeric features, one-hot encoding for categorical features, then a Random Forest. Preprocessing lives inside the model, so training and scoring always apply the same transforms.
-- **Validation before registration:** checks that the model has a signature and input example, and runs a prediction in a clean environment.
-
-| Metric | Value |
-|---|---|
-| ROC-AUC | *[X]* |
-| Precision (churn) | *[X]* |
-| Recall (churn) | *[X]* |
 
 ---
 
@@ -91,8 +77,3 @@ Databricks · Lakeflow Declarative Pipelines · Delta Lake · Unity Catalog · M
 
 ---
 
-## ⚠️ Limitations and next steps
-
-- **Scoring uses the training data.** Predictions are generated for the same customers the model was trained on; in production, scoring would target new or active customers only.
-- **Fixed model version.** Scoring loads version 1; using a Unity Catalog alias (e.g. `@champion`) would let new versions roll out without code changes.
-- **No retraining or monitoring yet.** Next steps: scheduled retraining and data/prediction drift monitoring with Lakehouse Monitoring.
