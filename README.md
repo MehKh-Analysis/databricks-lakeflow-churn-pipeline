@@ -1,4 +1,4 @@
-# 📉 Customer Churn MLOps on Databricks
+# Lakeflow Declarative ETL Pipeline + MLOps on Databricks 
 
 An end-to-end churn prediction pipeline on Databricks: raw customer data flows through a **Bronze → Silver → Gold** lakehouse built as a **Lakeflow Declarative Pipeline**, a **Random Forest** model is trained and tracked with **MLflow** and registered in **Unity Catalog**, and a scheduled **Databricks Job** refreshes the data and re-scores every customer daily.
 
