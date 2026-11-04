@@ -14,11 +14,6 @@ resources:
           depends_on:
             - task_key: etl_pipeline
           notebook_task:
-            notebook_path: /Workspace/Repos/${workspace.current_user.userName}/churn_lakehouse_mlops/notebooks/Churn_Batch_Scoring
-            source: GIT
-          new_cluster:
-            spark_version: "14.3.x-scala2.12"
-            node_type_id: "i3.xlarge"
-            num_workers: 2
+            notebook_path: ../model/churn_batch_scoring.ipynb
       queue:
         enabled: true

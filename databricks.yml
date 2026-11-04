@@ -1,0 +1,11 @@
+bundle:
+  name: databricks-lakeflow-churn-pipeline
+
+include:
+  - pipeline/*.yml
+  - jobs/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true

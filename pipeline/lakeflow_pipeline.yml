@@ -2,13 +2,12 @@ resources:
   pipelines:
     pipeline_churn_lakehouse:
       name: Churn Lakehouse Pipeline
-      libraries:
-        - notebook:
-            path: /Workspace/Repos/${workspace.current_user.userName}/churn_lakehouse_mlops/transformations/bronze_silver_gold
+      catalog: workspace
       schema: default
+      serverless: true
       continuous: false
       development: false
-      photon: true
       channel: CURRENT
-      catalog: workspace
-      serverless: true
+      libraries:
+        - notebook:
+            path: ../etl/bronze_silver_gold.ipynb
